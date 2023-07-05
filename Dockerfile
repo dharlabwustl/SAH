@@ -1,5 +1,5 @@
 FROM nvcr.io/nvidia/rapidsai/rapidsai-core:23.06-cuda11.8-runtime-ubuntu22.04-py3.10
-COPY /media/atul/WDJan2022/WASHU_WORKS/PROJECTS/DOCKERIZE/SAH/pytorch112.yml /rapids/
+RUN cp /media/atul/WDJan2022/WASHU_WORKS/PROJECTS/DOCKERIZE/SAH/pytorch112.yml /rapids/
 RUN conda env create -f /rapids/pytorch112.yml
 ##FROM sharmaatul11/fsl502py369ltx-full:latest
 ##FROM sharmaatul11/yashengstep1withfsl:latest
