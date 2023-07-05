@@ -1,7 +1,7 @@
 FROM nvcr.io/nvidia/rapidsai/rapidsai-core:23.06-cuda11.8-runtime-ubuntu22.04-py3.10
 COPY pytorch112.yml /rapids/pytorch112.yml
 RUN conda env create -f /rapids/pytorch112.yml
-RUN cp -r SAH_SEGMEN_FROM_YASHENG /rapids/SAH_SEGMEN_FROM_YASHENG
+COPY SAH_SEGMEN_FROM_YASHENG /rapids/
 ##FROM sharmaatul11/fsl502py369ltx-full:latest
 ##FROM sharmaatul11/yashengstep1withfsl:latest
 ##FROM yashengwustl/stroke_ct_segmentation:latest
