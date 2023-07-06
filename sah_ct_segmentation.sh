@@ -15,7 +15,7 @@ copyoutput_to_snipr() {
   file_suffix=$5
   output_dir=$3
   echo " I AM IN copyoutput_to_snipr "
-  /opt/conda/bin/python -c "
+  /opt/conda/envs/pytorch1.12/bin/python -c "
 import sys 
 sys.path.append('/software');
 from download_with_session_ID import *; 
@@ -31,7 +31,7 @@ copy_masks_data() {
   resource_dirname=${3} #str(sys.argv[4])
   output_dirname=${4}   #str(sys.argv[3])
   echo output_dirname::${output_dirname}
-  /opt/conda/bin/python -c "
+  /opt/conda/envs/pytorch1.12/bin/python -c "
 import sys 
 sys.path.append('/software');
 from download_with_session_ID import *; 
@@ -47,7 +47,7 @@ copy_allfiles_data() {
   resource_dirname=${3} #str(sys.argv[4])
   output_dirname=${4}   #str(sys.argv[3])
   echo output_dirname::${output_dirname}
-  /opt/conda/bin/python -c "
+  /opt/conda/envs/pytorch1.12/bin/python -c "
 import sys
 sys.path.append('/software');
 from download_with_session_ID import *;
@@ -89,7 +89,7 @@ get_nifti_scan_uri() {
   output_dir=$(dirname ${output_csvfile})
   rm -r ${output_dir}/*
   # scanID=$2
-  /opt/conda/bin/python -c "
+  /opt/conda/envs/pytorch1.12/bin/python -c "
 import sys 
 sys.path.append('/software');
 from download_with_session_ID import *; 
@@ -106,7 +106,7 @@ copy_scan_data() {
   # rm -r ${output_dir}/*
   # sessionID=$1
   # # scanID=$2
-  /opt/conda/bin/python -c "
+  /opt/conda/envs/pytorch1.12/bin/python -c "
 import sys 
 sys.path.append('/software');
 from download_with_session_ID import *; 
@@ -121,7 +121,7 @@ getmaskfilesscanmetadata() {
   resource_foldername=${3} # sys.argv[3]
   dir_to_save=${4}         # sys.argv[4]
   csvfilename=${5}         # sys.argv[5]
-  /opt/conda/bin/python -c "
+  /opt/conda/envs/pytorch1.12/bin/python -c "
 import sys 
 sys.path.append('/software');
 from download_with_session_ID import *; 
@@ -134,7 +134,7 @@ get_maskfile_scan_metadata()" ${sessionId} ${scanId} ${resource_foldername} ${di
 #get_nifti_scan_uri ${sessionID}  ${working_dir} ${niftifile_csvfilename}
 ########################################
 call_download_files_in_a_resource_in_a_session_arguments=('call_download_files_in_a_resource_in_a_session' ${sessionID} "NIFTI_LOCATION" ${working_dir})
-outputfiles_present=$(python3 download_with_session_ID.py "${call_download_files_in_a_resource_in_a_session_arguments[@]}")
+outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_files_in_a_resource_in_a_session_arguments[@]}")
 echo '$outputfiles_present'::$outputfiles_present
 ########################################
 for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
@@ -148,7 +148,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
     resource_foldername="SAH_SEGM"
     ### check if the file exists:
     call_check_if_a_file_exist_in_snipr_arguments=('call_check_if_a_file_exist_in_snipr' ${sessionID} ${scanID} ${resource_foldername} _resaved.nii.gz _resaved_4DL_normalized.nii.gz _resaved_levelset.nii.gz _resaved_4DL_seg.nii.gz _resaved_levelset_bet.nii.gz manual_splits.txt _resaved_4DL_normalized.nii.gz_csf_3.nii.gz _resaved_4DL_normalized.nii.gz_infarct.nii.gz _resaved_4DL_normalized.nii.gz_csf_4.nii.gz _resaved_4DL_normalized.nii.gz_csf_8.nii.gz _resaved_4DL_normalized.nii.gz_csf_1.nii.gz _resaved_4DL_normalized.nii.gz_csf_6.nii.gz _resaved_4DL_normalized.nii.gz_csf_2.nii.gz _resaved_4DL_normalized.nii.gz_csf_5.nii.gz _resaved_4DL_normalized.nii.gz_csf_7.nii.gz _resaved_4DL_normalized.nii.gz_csf_9.nii.gz _resaved_4DL_normalized.nii.gz_csf_10.nii.gz)
-    outputfiles_present=$(python3 download_with_session_ID.py "${call_check_if_a_file_exist_in_snipr_arguments[@]}")
+    outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_check_if_a_file_exist_in_snipr_arguments[@]}")
   done < <(tail -n +2 "${niftifile_csvfilename}")
   ################################################
   echo "outputfiles_present:: "${outputfiles_present: -1}"::outputfiles_present"
