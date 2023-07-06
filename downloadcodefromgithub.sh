@@ -10,7 +10,7 @@ git_dir=$(basename $y)
 #find /software/${git_dir}/* -type f -exec sed -i "s/python/\/root\/anaconda3\/envs\/tf\/bin\/python'/g" {} \;
 #find /software/${git_dir}/* -type f -exec sed -i "s/python/\/root\/anaconda3\/envs\/tf\/bin\/python'/g" {} \;
 mv ${git_dir}/* /software/
-cp -r  /SAH_SEGMEN_FROM_YASHENG /software/
+cp -r  /rapids/SAH_SEGMEN_FROM_YASHENG /software/
 chmod +x /software/SAH_SEGMEN_FROM_YASHENG/*.sh
 chmod +x /software/*.sh
 for x in  /software/SAH_SEGMEN_FROM_YASHENG/*/* ; do chmod +x $x ; done
