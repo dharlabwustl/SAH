@@ -145,7 +145,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
     scanID=${array[2]}
     echo sessionId::${sessionID}
     echo scanId::${scanID}
-    resource_foldername="PREPROCESS_SEGM"
+    resource_foldername="SAH_SEGM"
     ### check if the file exists:
     call_check_if_a_file_exist_in_snipr_arguments=('call_check_if_a_file_exist_in_snipr' ${sessionID} ${scanID} ${resource_foldername} _resaved.nii.gz _resaved_4DL_normalized.nii.gz _resaved_levelset.nii.gz _resaved_4DL_seg.nii.gz _resaved_levelset_bet.nii.gz manual_splits.txt _resaved_4DL_normalized.nii.gz_csf_3.nii.gz _resaved_4DL_normalized.nii.gz_infarct.nii.gz _resaved_4DL_normalized.nii.gz_csf_4.nii.gz _resaved_4DL_normalized.nii.gz_csf_8.nii.gz _resaved_4DL_normalized.nii.gz_csf_1.nii.gz _resaved_4DL_normalized.nii.gz_csf_6.nii.gz _resaved_4DL_normalized.nii.gz_csf_2.nii.gz _resaved_4DL_normalized.nii.gz_csf_5.nii.gz _resaved_4DL_normalized.nii.gz_csf_7.nii.gz _resaved_4DL_normalized.nii.gz_csf_9.nii.gz _resaved_4DL_normalized.nii.gz_csf_10.nii.gz)
     outputfiles_present=$(python3 download_with_session_ID.py "${call_check_if_a_file_exist_in_snipr_arguments[@]}")
@@ -156,6 +156,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
   if [[ "${outputfiles_present: -1}" -eq 1 ]]; then
     echo " I AM THE ONE"
   fi
+  outputfiles_present=${outputfiles_present}0
   if [[ "${outputfiles_present: -1}" -eq 0 ]]; then
 
     echo "outputfiles_present:: "${outputfiles_present: -1}"::outputfiles_present"
@@ -180,36 +181,37 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
 
     echo working_dir::${working_dir}
     echo output_dirname::${output_dirname}
+    output_dirname=/software/SAH_SEGMEN_FROM_YASHENG/images_input
     copy_allfiles_data ${sessionID} ${scanID} ${resource_dirname} ${output_dirname}
     ####################
     #/bin/bash -i -c
     #/root/anaconda3/bin/conda activate tf
-    /software/Stroke_CT_Segmentation/ppredict.sh ${working_dir} ${output_directory}
+    /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh  #${working_dir} ${output_directory}
 
-    ######################################################################################################################
-    #/root/anaconda3/bin/conda deactivate
-    for file in ${output_directory}/*; do
-      cp $file ${final_output_directory}/
-    done
-
-    ######################################################################################################################
-    # COPY IT TO THE SNIPR RESPECTIVE SCAN RESOURCES
-
-    snipr_output_foldername="PREPROCESS_SEGM"
-    file_suffixes=(.nii.gz .nii .txt) #sys.argv[5]
-    for file_suffix in ${file_suffixes[@]}; do
-      echo "COPYING FILES TO ${snipr_output_foldername} "
-      copyoutput_to_snipr ${sessionID} ${scanID} "${final_output_directory}" ${snipr_output_foldername} ${file_suffix}
-    done
-    ######################################################################################################################
-
-    ######################################################################################################################
-    echo " FILES NOT PRESENT I AM WORKING ON IT"
-  else
-    echo " FILES ARE PRESENT "
-  ######################################################################################################################
+#    ######################################################################################################################
+#    #/root/anaconda3/bin/conda deactivate
+#    for file in ${output_directory}/*; do
+#      cp $file ${final_output_directory}/
+#    done
+#
+#    ######################################################################################################################
+#    # COPY IT TO THE SNIPR RESPECTIVE SCAN RESOURCES
+#
+#    snipr_output_foldername="SAH_SEGM"
+#    file_suffixes=(.nii.gz .nii .txt) #sys.argv[5]
+#    for file_suffix in ${file_suffixes[@]}; do
+#      echo "COPYING FILES TO ${snipr_output_foldername} "
+#      copyoutput_to_snipr ${sessionID} ${scanID} "${final_output_directory}" ${snipr_output_foldername} ${file_suffix}
+#    done
+#    ######################################################################################################################
+#
+#    ######################################################################################################################
+#    echo " FILES NOT PRESENT I AM WORKING ON IT"
+#  else
+#    echo " FILES ARE PRESENT "
+#  ######################################################################################################################
   fi
-  rm ${final_output_directory}/*.*
+#  rm ${final_output_directory}/*.*
 done
 ################################################################################################################
 #
