@@ -172,6 +172,9 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
       scanID=${array[2]}
       echo sessionId::${sessionID}
       echo scanId::${scanID}
+      echo ${array[3]}
+      echo ${array[4]}
+      echo ${array[1]}
     done < <(tail -n +2 "${niftifile_csvfilename}")
     #    resource_dirname='NIFTI'
     #    output_dirname=${working_dir}
