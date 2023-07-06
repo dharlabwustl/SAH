@@ -134,7 +134,7 @@ get_maskfile_scan_metadata()" ${sessionId} ${scanId} ${resource_foldername} ${di
 #get_nifti_scan_uri ${sessionID} ${working_dir} ${niftifile_csvfilename}
 #######################################
 call_download_files_in_a_resource_in_a_session_arguments=('call_download_files_in_a_resource_in_a_session' ${sessionID} "NIFTI_LOCATION" ${working_dir})
-outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python  download_with_session_ID.py "${call_download_files_in_a_resource_in_a_session_arguments[@]}")
+outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_files_in_a_resource_in_a_session_arguments[@]}")
 echo '$outputfiles_present'::$outputfiles_present
 ########################################
 yasheng_code_input_dir='/software/SAH_SEGMEN_FROM_YASHENG/images_input'
@@ -142,10 +142,10 @@ cp ${yasheng_code_input_dir}/*.nii ${working_dir}/
 for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
   #  outputfiles_present=0
   echo $niftifile_csvfilename
-#  scanID=${array[2]}
+  #  scanID=${array[2]}
 
   echo sessionId::${sessionID}
-#  echo scanId::${scanID}
+  #  echo scanId::${scanID}
   resource_foldername="SAH_SEGM"
   call_check_if_a_file_exist_in_snipr_arguments=('call_check_if_a_file_exist_in_snipr' ${sessionID} ${scanID} ${resource_foldername} _resaved.nii.gz _resaved_4DL_normalized.nii.gz _resaved_levelset.nii.gz _resaved_4DL_seg.nii.gz _resaved_levelset_bet.nii.gz manual_splits.txt _resaved_4DL_normalized.nii.gz_csf_3.nii.gz _resaved_4DL_normalized.nii.gz_infarct.nii.gz _resaved_4DL_normalized.nii.gz_csf_4.nii.gz _resaved_4DL_normalized.nii.gz_csf_8.nii.gz _resaved_4DL_normalized.nii.gz_csf_1.nii.gz _resaved_4DL_normalized.nii.gz_csf_6.nii.gz _resaved_4DL_normalized.nii.gz_csf_2.nii.gz _resaved_4DL_normalized.nii.gz_csf_5.nii.gz _resaved_4DL_normalized.nii.gz_csf_7.nii.gz _resaved_4DL_normalized.nii.gz_csf_9.nii.gz _resaved_4DL_normalized.nii.gz_csf_10.nii.gz)
   outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_check_if_a_file_exist_in_snipr_arguments[@]}")
@@ -155,45 +155,43 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
       ### DOWNLOAD THE PREPROCESSED FILES
       resource_foldername=PREPROCESS_SEGM
 
-
-
       URI=${array[0]}
       filename=${array[1]}
-#      echo URI::${URI}
+      #      echo URI::${URI}
       scanID=${array[2]}
-#################################################
-#      URI=args.stuff[1] #sys.argv[1]
+      #################################################
+      #      URI=args.stuff[1] #sys.argv[1]
       # print("URI::{}".format(URI))
-#      URI=URI.split('/resources')[0]
+      #      URI=URI.split('/resources')[0]
       # print("URI::{}".format(URI))
-      resource_dir=PREPROCESS_SEGM #sys.argv[2]
-      dir_to_receive_the_data=${working_dir} #sys.argv[3]
+      resource_dir=PREPROCESS_SEGM                         #sys.argv[2]
+      dir_to_receive_the_data=${working_dir}               #sys.argv[3]
       output_csvfile=${filename%.nii*}_PREPROCESS_SEGM.csv #sys.argv[4]
       call_get_resourcefiles_metadata_saveascsv_args_arguments=('call_get_resourcefiles_metadata_saveascsv_args' ${URI} ${resource_dir} ${dir_to_receive_the_data} ${output_csvfile})
       outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_get_resourcefiles_metadata_saveascsv_args_arguments[@]}")
-################################################
-    while IFS=',' read -ra array1; do
-          URI_1=${array1[8]}  #if [[ "$string" == *"$Substring"* ]]
-#          echo URI_1_1::${URI_1}
-          if [[ ${URI_1} == *"seg.nii.gz"* ]]  ||  [[ ${URI_1} == *"normalized.nii.gz"* ]] ; then
-                      echo URI_1::${URI_1}
-          fi
-#                    if  [[ ${URI_1} == *"normalized.nii.gz"* ]] ; then
-#                                echo URI_1::${URI_1}
-#                    fi
-    done < <(tail -n +2 "${dir_to_receive_the_data}/${output_csvfile}")
+      ################################################
+      while IFS=',' read -ra array1; do
+        URI_1=${array1[6]} #if [[ "$string" == *"$Substring"* ]]
+        #          echo URI_1_1::${URI_1}
+        if [[ ${URI_1} == *"seg.nii.gz"* ]] || [[ ${URI_1} == *"normalized.nii.gz"* ]]; then
+          echo URI_1::${URI_1}
+          filename=${array1[8]}
+          call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI_1} ${filename} ${yasheng_code_input_dir})
+#          outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_a_singlefile_with_URIString_arguments[@]}")
+        fi
 
+      done < <(tail -n +2 "${dir_to_receive_the_data}/${output_csvfile}")
 
-#      call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI} ${filename} ${yasheng_code_input_dir})
-#      outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_a_singlefile_with_URIString_arguments[@]}")
-#      /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh
+      #      call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI} ${filename} ${yasheng_code_input_dir})
+      #      outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_a_singlefile_with_URIString_arguments[@]}")
+      #      /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh
     done < <(tail -n +2 "${niftifile_csvfilename}")
   fi
-#  cp ${yasheng_code_input_dir}/*.*  ${output_directory}/
-#  cp /software/SAH_SEGMEN_FROM_YASHENG/results_cistern/*.*  ${output_directory}/
-#  cp /software/SAH_SEGMEN_FROM_YASHENG/results_sulcal/*.*  ${output_directory}/
-#  cp /software/SAH_SEGMEN_FROM_YASHENG/results_ventri/*.*   ${output_directory}/
-#  cp /software/SAH_SEGMEN_FROM_YASHENG/results_total/*.*  ${output_directory}/
+  #  cp ${yasheng_code_input_dir}/*.*  ${output_directory}/
+  #  cp /software/SAH_SEGMEN_FROM_YASHENG/results_cistern/*.*  ${output_directory}/
+  #  cp /software/SAH_SEGMEN_FROM_YASHENG/results_sulcal/*.*  ${output_directory}/
+  #  cp /software/SAH_SEGMEN_FROM_YASHENG/results_ventri/*.*   ${output_directory}/
+  #  cp /software/SAH_SEGMEN_FROM_YASHENG/results_total/*.*  ${output_directory}/
   #  outputfiles_present=0
   ##  while IFS=',' read -ra array; do
   ##    scanID=${array[2]}
