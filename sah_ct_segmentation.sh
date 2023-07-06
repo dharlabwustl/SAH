@@ -189,6 +189,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
       #      /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh
     done < <(tail -n +2 "${niftifile_csvfilename}")
   fi
+
 #  /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh
   url=${URI_1##*/resource}
   echo "url::"${url}
@@ -223,6 +224,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
 #  #  cp /software/SAH_SEGMEN_FROM_YASHENG/results_sulcal/*.*  ${output_directory}/
 #  #  cp /software/SAH_SEGMEN_FROM_YASHENG/results_ventri/*.*   ${output_directory}/
 #  #  cp /software/SAH_SEGMEN_FROM_YASHENG/results_total/*.*  ${output_directory}/
+done
 #  #  outputfiles_present=0
 #  ##  while IFS=',' read -ra array; do
 #  ##    scanID=${array[2]}
