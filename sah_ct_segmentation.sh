@@ -149,7 +149,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
 #    echo sessionId::${sessionID}
 #    echo scanId::${scanID}
     call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI} ${filename} ${yasheng_code_input_dir})
-    outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_a_singlefile_with_URIString[@]}")
+    outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_a_singlefile_with_URIString_arguments[@]}")
 
   done < <(tail -n +2 "${niftifile_csvfilename}")
   #  outputfiles_present=0
