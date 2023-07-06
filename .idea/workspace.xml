@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5e2dcc20-f423-4fd1-878f-8a3a76aa27c0" name="Changes" comment="Commit 2">
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sah_ct_segmentation.sh" beforeDir="false" afterPath="$PROJECT_DIR$/sah_ct_segmentation.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,22 +42,6 @@
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1687277235339</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Commit 2">
-      <option name="closed" value="true" />
-      <created>1688589105164</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1688589105164</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Commit 2">
-      <option name="closed" value="true" />
-      <created>1688589161830</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1688589161830</updated>
     </task>
     <task id="LOCAL-00013" summary="Commit 2">
       <option name="closed" value="true" />
@@ -428,7 +411,23 @@
       <option name="project" value="LOCAL" />
       <updated>1688666629539</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Commit 2">
+      <option name="closed" value="true" />
+      <created>1688666819791</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1688666819791</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Commit 2">
+      <option name="closed" value="true" />
+      <created>1688666901229</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1688666901229</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
