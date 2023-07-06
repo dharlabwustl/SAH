@@ -7,8 +7,6 @@
     <list default="true" id="5e2dcc20-f423-4fd1-878f-8a3a76aa27c0" name="Changes" comment="Commit 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAH_CODE_PARENT_DIR/SAH_SEGMEN_FROM_YASHENG/ppredict.sh" beforeDir="false" afterPath="$PROJECT_DIR$/SAH_CODE_PARENT_DIR/SAH_SEGMEN_FROM_YASHENG/ppredict.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sah_ct_segmentation.sh" beforeDir="false" afterPath="$PROJECT_DIR$/sah_ct_segmentation.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/SAH_CODE_PARENT_DIR/SAH_SEGMEN_FROM_YASHENG" />
   </component>
   <component name="ProjectId" id="2RTYJK8mKvMs4mtZ1CvpsnOFuwJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -45,22 +43,6 @@
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1687277235339</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Commit 2">
-      <option name="closed" value="true" />
-      <created>1688663838904</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1688663838904</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Commit 2">
-      <option name="closed" value="true" />
-      <created>1688664101299</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1688664101299</updated>
     </task>
     <task id="LOCAL-00038" summary="Commit 2">
       <option name="closed" value="true" />
@@ -430,7 +412,23 @@
       <option name="project" value="LOCAL" />
       <updated>1688670088168</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Commit 2">
+      <option name="closed" value="true" />
+      <created>1688670487356</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1688670487356</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Commit 2">
+      <option name="closed" value="true" />
+      <created>1688670712281</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1688670712281</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
