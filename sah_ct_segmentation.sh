@@ -164,6 +164,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
       /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh
     done < <(tail -n +2 "${niftifile_csvfilename}")
   fi
+  cp ${yasheng_code_input_dir}/*.*  ${output_directory}/
   cp /software/SAH_SEGMEN_FROM_YASHENG/results_cistern/*.*  ${output_directory}/
   cp /software/SAH_SEGMEN_FROM_YASHENG/results_sulcal/*.*  ${output_directory}/
   cp /software/SAH_SEGMEN_FROM_YASHENG/results_ventri/*.*   ${output_directory}/
