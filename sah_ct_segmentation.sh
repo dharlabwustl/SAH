@@ -140,6 +140,14 @@ echo '$outputfiles_present'::$outputfiles_present
 for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
   #  outputfiles_present=0
   echo $niftifile_csvfilename
+      while IFS=',' read -ra array; do
+        scanID=${array[2]}
+        echo sessionId::${sessionID}
+        echo scanId::${scanID}
+        echo ${array[3]}
+        echo ${array[4]}
+        echo ${array[1]}
+      done < <(tail -n +2 "${niftifile_csvfilename}")
 #  outputfiles_present=0
 ##  while IFS=',' read -ra array; do
 ##    scanID=${array[2]}
