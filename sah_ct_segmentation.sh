@@ -138,7 +138,7 @@ outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_sessi
 echo '$outputfiles_present'::$outputfiles_present
 ########################################
 yasheng_code_input_dir='/software/SAH_SEGMEN_FROM_YASHENG/images_input'
-cp ${yasheng_code_input_dir}/*.nii ${working_dir}/
+#cp ${yasheng_code_input_dir}/*.nii ${working_dir}/
 for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
   #  outputfiles_present=0
   echo $niftifile_csvfilename
@@ -177,7 +177,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
           echo URI_1::${URI_1}
           filename=${array1[8]}
           echo filename::${filename}
-          call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI_1} ${filename} ${working_dir})
+          call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI_1} ${filename} ${yasheng_code_input_dir})
           outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_a_singlefile_with_URIString_arguments[@]}")
           #          /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh
         fi
