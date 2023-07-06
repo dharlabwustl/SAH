@@ -175,9 +175,12 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
     while IFS=',' read -ra array1; do
           URI_1=${array1[8]}  #if [[ "$string" == *"$Substring"* ]]
 #          echo URI_1_1::${URI_1}
-          if [[  ${URI_1} == *"seg.nii.gz"* ]] | [[ ${URI_1} == *"normalized.nii.gz"* ]] ; then
+          if [[  ${URI_1} == *"seg.nii.gz"* ]]  ; then
                       echo URI_1::${URI_1}
           fi
+                    if  [[ ${URI_1} == *"normalized.nii.gz"* ]] ; then
+                                echo URI_1::${URI_1}
+                    fi
     done < <(tail -n +2 "${dir_to_receive_the_data}/${output_csvfile}")
 
 
