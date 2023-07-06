@@ -154,10 +154,10 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
     outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_check_if_a_file_exist_in_snipr_arguments[@]}")
   done < <(tail -n +2 "${niftifile_csvfilename}")
   ################################################
+  outputfiles_present=${outputfiles_present}0
   echo "outputfiles_present:: "${outputfiles_present: -1}"::outputfiles_present"
   #echo "outputfiles_present::ATUL${outputfiles_present}::outputfiles_present"
 
-  outputfiles_present=${outputfiles_present}0
   if [[ "${outputfiles_present: -1}" -eq 0 ]]; then
 
     echo "outputfiles_present:: "${outputfiles_present: -1}"::outputfiles_present"
@@ -172,42 +172,42 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
       echo sessionId::${sessionID}
       echo scanId::${scanID}
     done < <(tail -n +2 "${niftifile_csvfilename}")
-#    resource_dirname='NIFTI'
-#    output_dirname=${working_dir}
-#
-#    echo working_dir::${working_dir}
-#    echo output_dirname::${output_dirname}
-#    output_dirname=/software/SAH_SEGMEN_FROM_YASHENG/images_input
-#    copy_allfiles_data ${sessionID} ${scanID} ${resource_dirname} ${output_dirname}
-#    ####################
-#    #/bin/bash -i -c
-#    #/root/anaconda3/bin/conda activate tf
-#    /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh  #${working_dir} ${output_directory}
-#
-##    ######################################################################################################################
-##    #/root/anaconda3/bin/conda deactivate
-##    for file in ${output_directory}/*; do
-##      cp $file ${final_output_directory}/
-##    done
-##
-##    ######################################################################################################################
-##    # COPY IT TO THE SNIPR RESPECTIVE SCAN RESOURCES
-##
-##    snipr_output_foldername="SAH_SEGM"
-##    file_suffixes=(.nii.gz .nii .txt) #sys.argv[5]
-##    for file_suffix in ${file_suffixes[@]}; do
-##      echo "COPYING FILES TO ${snipr_output_foldername} "
-##      copyoutput_to_snipr ${sessionID} ${scanID} "${final_output_directory}" ${snipr_output_foldername} ${file_suffix}
-##    done
-##    ######################################################################################################################
-##
-##    ######################################################################################################################
-##    echo " FILES NOT PRESENT I AM WORKING ON IT"
-##  else
-##    echo " FILES ARE PRESENT "
-##  ######################################################################################################################
+    #    resource_dirname='NIFTI'
+    #    output_dirname=${working_dir}
+    #
+    #    echo working_dir::${working_dir}
+    #    echo output_dirname::${output_dirname}
+    #    output_dirname=/software/SAH_SEGMEN_FROM_YASHENG/images_input
+    #    copy_allfiles_data ${sessionID} ${scanID} ${resource_dirname} ${output_dirname}
+    #    ####################
+    #    #/bin/bash -i -c
+    #    #/root/anaconda3/bin/conda activate tf
+    #    /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh  #${working_dir} ${output_directory}
+    #
+    ##    ######################################################################################################################
+    ##    #/root/anaconda3/bin/conda deactivate
+    ##    for file in ${output_directory}/*; do
+    ##      cp $file ${final_output_directory}/
+    ##    done
+    ##
+    ##    ######################################################################################################################
+    ##    # COPY IT TO THE SNIPR RESPECTIVE SCAN RESOURCES
+    ##
+    ##    snipr_output_foldername="SAH_SEGM"
+    ##    file_suffixes=(.nii.gz .nii .txt) #sys.argv[5]
+    ##    for file_suffix in ${file_suffixes[@]}; do
+    ##      echo "COPYING FILES TO ${snipr_output_foldername} "
+    ##      copyoutput_to_snipr ${sessionID} ${scanID} "${final_output_directory}" ${snipr_output_foldername} ${file_suffix}
+    ##    done
+    ##    ######################################################################################################################
+    ##
+    ##    ######################################################################################################################
+    ##    echo " FILES NOT PRESENT I AM WORKING ON IT"
+    ##  else
+    ##    echo " FILES ARE PRESENT "
+    ##  ######################################################################################################################
   fi
-#  rm ${final_output_directory}/*.*
+  #  rm ${final_output_directory}/*.*
 done
 ################################################################################################################
 #
