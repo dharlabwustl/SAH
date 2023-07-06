@@ -190,7 +190,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
     done < <(tail -n +2 "${niftifile_csvfilename}")
   fi
 
-  #  /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh
+    /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh
   url=${URI_1%/resource*}
   echo "url::"${url}
     resource_dirname="SAH_SEGM"
