@@ -149,18 +149,20 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
   call_check_if_a_file_exist_in_snipr_arguments=('call_check_if_a_file_exist_in_snipr' ${sessionID} ${scanID} ${resource_foldername} _resaved.nii.gz _resaved_4DL_normalized.nii.gz _resaved_levelset.nii.gz _resaved_4DL_seg.nii.gz _resaved_levelset_bet.nii.gz manual_splits.txt _resaved_4DL_normalized.nii.gz_csf_3.nii.gz _resaved_4DL_normalized.nii.gz_infarct.nii.gz _resaved_4DL_normalized.nii.gz_csf_4.nii.gz _resaved_4DL_normalized.nii.gz_csf_8.nii.gz _resaved_4DL_normalized.nii.gz_csf_1.nii.gz _resaved_4DL_normalized.nii.gz_csf_6.nii.gz _resaved_4DL_normalized.nii.gz_csf_2.nii.gz _resaved_4DL_normalized.nii.gz_csf_5.nii.gz _resaved_4DL_normalized.nii.gz_csf_7.nii.gz _resaved_4DL_normalized.nii.gz_csf_9.nii.gz _resaved_4DL_normalized.nii.gz_csf_10.nii.gz)
   outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_check_if_a_file_exist_in_snipr_arguments[@]}")
   echo "outputfiles_present:: "${outputfiles_present: -1}"::outputfiles_present"
-  while IFS=',' read -ra array; do
-    URI=${array[0]}
-    filename=${array[1]}
-    echo URI::${URI}
-    scanID=${array[2]}
-#    echo sessionId::${sessionID}
-#    echo scanId::${scanID}
+  if [[ "${outputfiles_present: -1}" -eq 0 ]]; then
+    while IFS=',' read -ra array; do
+      URI=${array[0]}
+      filename=${array[1]}
+      echo URI::${URI}
+      scanID=${array[2]}
+      #    echo sessionId::${sessionID}
+      #    echo scanId::${scanID}
 
-    call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI} ${filename} ${yasheng_code_input_dir})
-    outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_a_singlefile_with_URIString_arguments[@]}")
+      call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI} ${filename} ${yasheng_code_input_dir})
+      outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_a_singlefile_with_URIString_arguments[@]}")
 
-  done < <(tail -n +2 "${niftifile_csvfilename}")
+    done < <(tail -n +2 "${niftifile_csvfilename}")
+  fi
   #  outputfiles_present=0
   ##  while IFS=',' read -ra array; do
   ##    scanID=${array[2]}
