@@ -173,8 +173,11 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
       outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_get_resourcefiles_metadata_saveascsv_args_arguments[@]}")
 ################################################
     while IFS=',' read -ra array1; do
-          URI_1=${array1[8]}
-          echo ${URI_1}
+          URI_1=${array1[8]}  #if [[ "$string" == *"$Substring"* ]]
+
+          if [[ "$string" == *"seg.nii.gz "* ]] | [[ "$string" == *"normalized.nii.gz"* ]] ; then
+                      echo ${URI_1}
+          fi
     done < <(tail -n +2 "${dir_to_receive_the_data}/${output_csvfile}")
 
 
