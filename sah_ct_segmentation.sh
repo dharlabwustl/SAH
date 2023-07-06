@@ -143,11 +143,12 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
   outputfiles_present=0
   while IFS=',' read -ra array; do
     scanID=${array[2]}
-    echo ${array[3]}
-    echo ${array[4]}
-    echo ${array[1]}
+
     echo sessionId::${sessionID}
     echo scanId::${scanID}
+        echo ${array[3]}
+        echo ${array[4]}
+        echo ${array[1]}
     resource_foldername="SAH_SEGM"
     ### check if the file exists:
     call_check_if_a_file_exist_in_snipr_arguments=('call_check_if_a_file_exist_in_snipr' ${sessionID} ${scanID} ${resource_foldername} _resaved.nii.gz _resaved_4DL_normalized.nii.gz _resaved_levelset.nii.gz _resaved_4DL_seg.nii.gz _resaved_levelset_bet.nii.gz manual_splits.txt _resaved_4DL_normalized.nii.gz_csf_3.nii.gz _resaved_4DL_normalized.nii.gz_infarct.nii.gz _resaved_4DL_normalized.nii.gz_csf_4.nii.gz _resaved_4DL_normalized.nii.gz_csf_8.nii.gz _resaved_4DL_normalized.nii.gz_csf_1.nii.gz _resaved_4DL_normalized.nii.gz_csf_6.nii.gz _resaved_4DL_normalized.nii.gz_csf_2.nii.gz _resaved_4DL_normalized.nii.gz_csf_5.nii.gz _resaved_4DL_normalized.nii.gz_csf_7.nii.gz _resaved_4DL_normalized.nii.gz_csf_9.nii.gz _resaved_4DL_normalized.nii.gz_csf_10.nii.gz)
