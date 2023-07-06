@@ -197,24 +197,28 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
     for x in /software/SAH_SEGMEN_FROM_YASHENG/results_cistern/*.*; do
       x_new=${x%.nii*}_cistern.nii.gz
       file_name=${x_new}
+      cp ${x} ${file_name}
       call_uploadsinglefile_with_URI_arguments=('call_uploadsinglefile_with_URI' ${url} ${file_name} ${resource_dirname})
       outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_uploadsinglefile_with_URI_arguments[@]}")
     done
     for x in /software/SAH_SEGMEN_FROM_YASHENG/results_sulcal/*.*; do
       x_new=${x%.nii*}_sulcal.nii.gz
       file_name=${x_new}
+      cp ${x} ${file_name}
       call_uploadsinglefile_with_URI_arguments=('call_uploadsinglefile_with_URI' ${url} ${file_name} ${resource_dirname})
       outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_uploadsinglefile_with_URI_arguments[@]}")
     done
     for x in /software/SAH_SEGMEN_FROM_YASHENG/results_ventri/*.*; do
       x_new=${x%.nii*}_ventri.nii.gz
       file_name=${x_new}
+      cp ${x} ${file_name}
       call_uploadsinglefile_with_URI_arguments=('call_uploadsinglefile_with_URI' ${url} ${file_name} ${resource_dirname})
       outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_uploadsinglefile_with_URI_arguments[@]}")
     done
     for x in /software/SAH_SEGMEN_FROM_YASHENG/results_total/*.*; do
       x_new=${x%.nii*}_total.nii.gz
       file_name=${x_new}
+      cp ${x} ${file_name}
       call_uploadsinglefile_with_URI_arguments=('call_uploadsinglefile_with_URI' ${url} ${file_name} ${resource_dirname})
       outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_uploadsinglefile_with_URI_arguments[@]}")
     done
