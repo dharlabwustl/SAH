@@ -172,6 +172,10 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
       call_get_resourcefiles_metadata_saveascsv_args_arguments=('call_get_resourcefiles_metadata_saveascsv_args' ${URI} ${resource_dir} ${dir_to_receive_the_data} ${output_csvfile})
       outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_get_resourcefiles_metadata_saveascsv_args_arguments[@]}")
 ################################################
+    while IFS=',' read -ra array1; do
+          URI_1=${array1[0]}
+          echo ${URI_1}
+    done < <(tail -n +2 "${dir_to_receive_the_data}/${output_csvfile}")
 
 
 #      call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI} ${filename} ${yasheng_code_input_dir})
@@ -179,11 +183,11 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
 #      /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh
     done < <(tail -n +2 "${niftifile_csvfilename}")
   fi
-  cp ${yasheng_code_input_dir}/*.*  ${output_directory}/
-  cp /software/SAH_SEGMEN_FROM_YASHENG/results_cistern/*.*  ${output_directory}/
-  cp /software/SAH_SEGMEN_FROM_YASHENG/results_sulcal/*.*  ${output_directory}/
-  cp /software/SAH_SEGMEN_FROM_YASHENG/results_ventri/*.*   ${output_directory}/
-  cp /software/SAH_SEGMEN_FROM_YASHENG/results_total/*.*  ${output_directory}/
+#  cp ${yasheng_code_input_dir}/*.*  ${output_directory}/
+#  cp /software/SAH_SEGMEN_FROM_YASHENG/results_cistern/*.*  ${output_directory}/
+#  cp /software/SAH_SEGMEN_FROM_YASHENG/results_sulcal/*.*  ${output_directory}/
+#  cp /software/SAH_SEGMEN_FROM_YASHENG/results_ventri/*.*   ${output_directory}/
+#  cp /software/SAH_SEGMEN_FROM_YASHENG/results_total/*.*  ${output_directory}/
   #  outputfiles_present=0
   ##  while IFS=',' read -ra array; do
   ##    scanID=${array[2]}
