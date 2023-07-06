@@ -219,11 +219,11 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
       outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_uploadsinglefile_with_URI_arguments[@]}")
     done
 
-    #  cp ${yasheng_code_input_dir}/*.* ${output_directory}/ ##*.
-    #  cp /software/SAH_SEGMEN_FROM_YASHENG/results_cistern/*.*  ${output_directory}/
-    #  cp /software/SAH_SEGMEN_FROM_YASHENG/results_sulcal/*.*  ${output_directory}/
-    #  cp /software/SAH_SEGMEN_FROM_YASHENG/results_ventri/*.*   ${output_directory}/
-    #  cp /software/SAH_SEGMEN_FROM_YASHENG/results_total/*.*  ${output_directory}/
+      cp ${yasheng_code_input_dir}/*.* ${output_directory}/ ##*.
+      cp /software/SAH_SEGMEN_FROM_YASHENG/results_cistern/*.*  ${output_directory}/
+      cp /software/SAH_SEGMEN_FROM_YASHENG/results_sulcal/*.*  ${output_directory}/
+      cp /software/SAH_SEGMEN_FROM_YASHENG/results_ventri/*.*   ${output_directory}/
+      cp /software/SAH_SEGMEN_FROM_YASHENG/results_total/*.*  ${output_directory}/
 done
 #  #  outputfiles_present=0
 #  ##  while IFS=',' read -ra array; do
