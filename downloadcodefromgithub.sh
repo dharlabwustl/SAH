@@ -10,11 +10,11 @@ git_dir=$(basename $y)
 #find /software/${git_dir}/* -type f -exec sed -i "s/python/\/root\/anaconda3\/envs\/tf\/bin\/python'/g" {} \;
 #find /software/${git_dir}/* -type f -exec sed -i "s/python/\/root\/anaconda3\/envs\/tf\/bin\/python'/g" {} \;
 mv ${git_dir}/* /software/
-cp -r  /Stroke_CT_Segmentation /software/
-#chmod +x /software/Stroke_CT_Segmentation/*.sh
-#chmod +x /software/*.sh
-#for x in  /software/Stroke_CT_Segmentation/*/* ; do chmod +x $x ; done
-#for x in  /software/Stroke_CT_Segmentation/* ; do chmod +x $x ; done
+cp -r  /SAH_SEGMEN_FROM_YASHENG /software/
+chmod +x /software/SAH_SEGMEN_FROM_YASHENG/*.sh
+chmod +x /software/*.sh
+for x in  /software/SAH_SEGMEN_FROM_YASHENG/*/* ; do chmod +x $x ; done
+for x in  /software/SAH_SEGMEN_FROM_YASHENG/* ; do chmod +x $x ; done
 #find /software/Stroke_CT_Segmentation/* -type f -exec sed -i "s/\/Stroke_CT_Segmentation/\/software\/Stroke_CT_Segmentation/g" {} \;
 #find /software/Stroke_CT_Segmentation/* -type f -exec sed -i "s/python/\/opt\/conda\/envs\/tf\/bin\/python/g" {} \;
 ##find /software/Stroke_CT_Segmentation/* -type f -exec sed -i "s/python/\/root\/anaconda3\/envs\/tf\/bin\/python/g" {} \;
