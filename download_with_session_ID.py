@@ -887,6 +887,12 @@ def call_get_resourcefiles_metadata_saveascsv():
         print("I FAILED AT ::{}".format(inspect.stack()[0][3]))
         pass
     return 0
+def call_uploadsinglefile_with_URI(args):
+    url=args.stuff[1]
+    file_name=args.stuff[2]
+    resource_dirname=args.stuff[3]
+    # url=args.stuff[1]
+    uploadsinglefile_with_URI(url,file_name,resource_dirname)
 
 def call_get_resourcefiles_metadata_saveascsv_args(args):
     try:
@@ -1665,6 +1671,8 @@ def main():
 
     if name_of_the_function=="call_download_a_singlefile_with_URIString":
         return_value=call_download_a_singlefile_with_URIString(args)
+    if name_of_the_function=="call_uploadsinglefile_with_URI":
+        return_value=call_uploadsinglefile_with_URI(args)
 
         # print(return_value) call_get_resourcefiles_metadata_saveascsv
         # return  call_concatenate_twocsv_list
