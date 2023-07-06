@@ -143,11 +143,12 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
   echo $niftifile_csvfilename
   while IFS=',' read -ra array; do
     URI=${array[0]}
+    filename=${array[1]}
     echo URI::${URI}
     scanID=${array[2]}
     echo sessionId::${sessionID}
     echo scanId::${scanID}
-    call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI} ${yasheng_code_input_dir})
+    call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI} ${filename} ${yasheng_code_input_dir})
     outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_a_singlefile_with_URIString[@]}")
 
   done < <(tail -n +2 "${niftifile_csvfilename}")
