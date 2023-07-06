@@ -141,7 +141,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
   #  outputfiles_present=0
   echo $niftifile_csvfilename
       while IFS=',' read -ra array; do
-        URI=${array[1]}
+        URI=${array[0]}
         echo URI::${URI}
         scanID=${array[2]}
         echo sessionId::${sessionID}
