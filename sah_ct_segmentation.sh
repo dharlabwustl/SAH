@@ -159,7 +159,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
 
       URI=${array[0]}
       filename=${array[1]}
-      echo URI::${URI}
+#      echo URI::${URI}
       scanID=${array[2]}
 #################################################
 #      URI=args.stuff[1] #sys.argv[1]
@@ -174,9 +174,9 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
 ################################################
     while IFS=',' read -ra array1; do
           URI_1=${array1[8]}  #if [[ "$string" == *"$Substring"* ]]
-
+          echo URI_1_1::${URI_1}
           if [[ "$string" == *"seg.nii.gz "* ]] | [[ "$string" == *"normalized.nii.gz"* ]] ; then
-                      echo ${URI_1}
+                      echo URI_1::${URI_1}
           fi
     done < <(tail -n +2 "${dir_to_receive_the_data}/${output_csvfile}")
 
