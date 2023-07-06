@@ -178,6 +178,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
           filename=${array1[8]}
           call_download_a_singlefile_with_URIString_arguments=('call_download_a_singlefile_with_URIString' ${URI_1} ${filename} ${yasheng_code_input_dir})
           outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_a_singlefile_with_URIString_arguments[@]}")
+          /software/SAH_SEGMEN_FROM_YASHENG/ppredict.sh
         fi
 
       done < <(tail -n +2 "${dir_to_receive_the_data}/${output_csvfile}")
