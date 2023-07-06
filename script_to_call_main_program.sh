@@ -10,7 +10,7 @@ if [[ ${TYPE_OF_PROGRAM} == 1 ]] ;
 then
   echo " I AM HERE ${0}"
   echo " I AM WORKING"
-#    /software/sah_ct_segmentation.sh $SESSION_ID $XNAT_USER $XNAT_PASS $XNAT_HOST /input /output
+    /software/sah_ct_segmentation.sh $SESSION_ID $XNAT_USER $XNAT_PASS $XNAT_HOST /input /output
 fi
 
 #if [[ ${TYPE_OF_PROGRAM} == 3 ]] ;
