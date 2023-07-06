@@ -134,7 +134,7 @@ get_maskfile_scan_metadata()" ${sessionId} ${scanId} ${resource_foldername} ${di
 #get_nifti_scan_uri ${sessionID} ${working_dir} ${niftifile_csvfilename}
 #######################################
 call_download_files_in_a_resource_in_a_session_arguments=('call_download_files_in_a_resource_in_a_session' ${sessionID} "NIFTI_LOCATION" ${working_dir})
-outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_files_in_a_resource_in_a_session_arguments[@]}")
+outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python  download_with_session_ID.py "${call_download_files_in_a_resource_in_a_session_arguments[@]}")
 echo '$outputfiles_present'::$outputfiles_present
 ########################################
 yasheng_code_input_dir='/software/SAH_SEGMEN_FROM_YASHENG/images_input'
