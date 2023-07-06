@@ -137,7 +137,8 @@ call_download_files_in_a_resource_in_a_session_arguments=('call_download_files_i
 outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_download_files_in_a_resource_in_a_session_arguments[@]}")
 echo '$outputfiles_present'::$outputfiles_present
 ########################################
-yasheng_code_input_dir=${working_dir} #'/software/SAH_SEGMEN_FROM_YASHENG/images_input'
+yasheng_code_input_dir='/software/SAH_SEGMEN_FROM_YASHENG/images_input'
+cp ${yasheng_code_input_dir}/*.nii ${working_dir}/
 for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
   #  outputfiles_present=0
   echo $niftifile_csvfilename
