@@ -1,12 +1,12 @@
 {
-  "name": "ct_segmentation",
-  "description": "Apply ct_segmentation",
+  "name": "sah_ct_segmentation",
+  "description": "Apply sah_ct_segmentation",
   "version": "1.0",
   "schema-version": "1.0",
-  "image": "registry.nrg.wustl.edu/docker/nrg-repo/sharmaatul11/ctegmentation:latest",
+  "image": "registry.nrg.wustl.edu/docker/nrg-repo/sharmaatul11/sahsegmentation:latest",
   "type": "docker",
   "working-directory": "/callfromgithub",
-  "command-line": " /callfromgithub/downloadcodefromgithub.sh #SESSION_ID# $XNAT_USER $XNAT_PASS https://snipr.wustl.edu https://github.com/dharlabwustl/CT_CSF_INFARCT_SEGMN.git 2 ",
+  "command-line": " /callfromgithub/downloadcodefromgithub.sh #SESSION_ID# $XNAT_USER $XNAT_PASS https://snipr.wustl.edu 'https://github.com/dharlabwustl/SAH.git' 1 ",
   "override-entrypoint": true,
   "mounts": [
     {
@@ -101,9 +101,9 @@
   "outputs": [],
   "xnat": [
     {
-      "name": "ct_segmentation",
-      "label": "ct_segmentation batch",
-      "description": "ct_segmentation",
+      "name": "sah_ct_segmentation",
+      "label": "sah_ct_segmentation batch",
+      "description": "sah_ct_segmentation",
       "contexts": [
         "xnat:imageSessionData"
       ],
