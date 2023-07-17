@@ -153,7 +153,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
   if [[ "${outputfiles_present: -1}" -eq 0 ]]; then
     while IFS=',' read -ra array; do
       ### DOWNLOAD THE PREPROCESSED FILES
-      resource_foldername=PREPROCESS_SEGM_SAH
+      resource_foldername=PREPROCESS_SEGM
 
       URI=${array[0]}
       filename=${array[1]}
@@ -164,7 +164,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
       # print("URI::{}".format(URI))
       #      URI=URI.split('/resources')[0]
       # print("URI::{}".format(URI))
-      resource_dir="PREPROCESS_SEGM_SAH"                       #sys.argv[2]
+      resource_dir="PREPROCESS_SEGM"                       #sys.argv[2]
       dir_to_receive_the_data=${working_dir}               #sys.argv[3]
       output_csvfile=${filename%.nii*}_PREPROCESS_SEGM.csv #sys.argv[4]
       call_get_resourcefiles_metadata_saveascsv_args_arguments=('call_get_resourcefiles_metadata_saveascsv_args' ${URI} ${resource_dir} ${dir_to_receive_the_data} ${output_csvfile})
