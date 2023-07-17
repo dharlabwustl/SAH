@@ -147,7 +147,7 @@ for niftifile_csvfilename in ${working_dir}/*NIFTILOCATION.csv; do
   echo sessionId::${sessionID}
   #  echo scanId::${scanID}
   resource_foldername="SAH_SEGM"
-  call_check_if_a_file_exist_in_snipr_arguments=('call_check_if_a_file_exist_in_snipr' ${sessionID} ${scanID} ${resource_foldername} )
+  call_check_if_a_file_exist_in_snipr_arguments=('call_check_if_a_file_exist_in_snipr' ${sessionID} ${scanID} ${resource_foldername} *results_cistern.nii.gz *results_sulcal.nii.gz *results_ventri.nii.gz *results_total.nii.gz)
   outputfiles_present=$(/opt/conda/envs/pytorch1.12/bin/python download_with_session_ID.py "${call_check_if_a_file_exist_in_snipr_arguments[@]}")
   echo "outputfiles_present:: "${outputfiles_present: -1}"::outputfiles_present"
   if [[ "${outputfiles_present: -1}" -eq 0 ]]; then
