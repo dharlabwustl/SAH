@@ -16,4 +16,4 @@ imagename=${2} #'yashengstep1'
 #docker push sharmaatul11/${imagename}
 #
 docker build -t registry.nrg.wustl.edu/docker/nrg-repo/sharmaatul11/${imagename} ${parent_dir}
-#docker push registry.nrg.wustl.edu/docker/nrg-repo/sharmaatul11/${imagename}
+docker push registry.nrg.wustl.edu/docker/nrg-repo/sharmaatul11/${imagename}

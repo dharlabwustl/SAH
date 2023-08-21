@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2dcc20-f423-4fd1-878f-8a3a76aa27c0" name="Changes" comment="Commit 2">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sah_ct_segmentation.sh" beforeDir="false" afterPath="$PROJECT_DIR$/sah_ct_segmentation.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +16,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="2RTYJK8mKvMs4mtZ1CvpsnOFuwJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -44,30 +47,6 @@
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1687277235339</updated>
-    </task>
-    <task id="LOCAL-00078" summary="Commit 2">
-      <option name="closed" value="true" />
-      <created>1688669606544</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1688669606544</updated>
-    </task>
-    <task id="LOCAL-00079" summary="Commit 2">
-      <option name="closed" value="true" />
-      <created>1688669662305</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1688669662305</updated>
-    </task>
-    <task id="LOCAL-00080" summary="Commit 2">
-      <option name="closed" value="true" />
-      <created>1688669722921</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1688669722921</updated>
     </task>
     <task id="LOCAL-00081" summary="Commit 2">
       <option name="closed" value="true" />
@@ -429,7 +408,31 @@
       <option name="project" value="LOCAL" />
       <updated>1689625724324</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="Commit 2">
+      <option name="closed" value="true" />
+      <created>1689626236895</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1689626236895</updated>
+    </task>
+    <task id="LOCAL-00127" summary="Commit 2">
+      <option name="closed" value="true" />
+      <created>1689626280166</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1689626280166</updated>
+    </task>
+    <task id="LOCAL-00128" summary="Commit 2">
+      <option name="closed" value="true" />
+      <created>1689626405866</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1689626405866</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
