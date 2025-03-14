@@ -1,6 +1,6 @@
 # ./bashtowriteDockerfile.sh
 parent_dir='/media/atul/WDJan2022/WASHU_WORKS/PROJECTS/DOCKERIZE/SAH'
-#cat ${parent_dir}/Dockerfile_part1 > ${parent_dir}/Dockerfile
+cat ${parent_dir}/Dockerfile_part1 > ${parent_dir}/Dockerfile
 echo "  "
 command=""
 for x in ${parent_dir}/*.json ;
